@@ -9,64 +9,69 @@
 </head>
 <body>
 
-    <h1>Juego Luces - Mateo Quintela Trillo</h1>
-
-    <section class="stats">
-        <h2>Estadísticas</h2>
-        <article class="attempts">
-            <h3>Número de intentos:</h3>
-            <ul id="attempts-list">
-                <li>1</li>
-            </ul>
-        </article>
-    
-        <article class="time">
-            <h3>Tiempo transcurrido:</h3>
-            <p>1</p>
-        </article>
+    <section class="title">
+        <img src="img/favicon.png" alt="Logo"/>
+        <h1>Juego Luces - Mateo Quintela Trillo</h1>
     </section>
 
-    <section class="board">
-        <div id="row1">
-            <img src="./img/switch_on.png" id="img_1_1" />
-            <img src="./img/switch_on.png" id="img_1_2" />
-            <img src="./img/switch_on.png" id="img_1_3" />
-            <img src="./img/switch_on.png" id="img_4_1" />
-            <img src="./img/switch_on.png" id="img_5_2" />
-        </div>
-        <div id="row2">
-            <img src="./img/switch_on.png" id="img_2_1" />
-            <img src="./img/switch_on.png" id="img_2_2" />
-            <img src="./img/switch_on.png" id="img_2_3" />
-            <img src="./img/switch_on.png" id="img_4_3" />
-            <img src="./img/switch_on.png" id="img_3_3" />
-        </div>
-        <div id="row3">
-            <img src="./img/switch_on.png" id="img_3_1" />
-            <img src="./img/switch_on.png" id="img_3_2" />
-            <img src="./img/switch_on.png" id="img_4_2" />
-            <img src="./img/switch_on.png" id="img_5_1" />
-            <img src="./img/switch_on.png" id="img_5_4" />
-        </div>
-    </section>
+    <main>
+        <section class="board">
+            <div id="row1">
+                <img src="./img/switch_on.png" id="img_1_1" />
+                <img src="./img/switch_on.png" id="img_1_2" />
+                <img src="./img/switch_on.png" id="img_1_3" />
+                <img src="./img/switch_on.png" id="img_4_1" />
+                <img src="./img/switch_on.png" id="img_5_2" />
+            </div>
+            <div id="row2">
+                <img src="./img/switch_on.png" id="img_2_1" />
+                <img src="./img/switch_on.png" id="img_2_2" />
+                <img src="./img/switch_off.png" id="img_2_3" />
+                <img src="./img/switch_off.png" id="img_4_3" />
+                <img src="./img/switch_on.png" id="img_3_3" />
+            </div>
+            <div id="row3">
+                <img src="./img/switch_off.png" id="img_3_1" />
+                <img src="./img/switch_on.png" id="img_3_2" />
+                <img src="./img/switch_on.png" id="img_4_2" />
+                <img src="./img/switch_on.png" id="img_5_1" />
+                <img src="./img/switch_on.png" id="img_5_4" />
+            </div>
+        </section>
 
-    <section class="game-settings">
-        <h2>Ajustes del juego</h2>
-        <form class="difficult-selector">
-            <input type="radio" name="option" id="easy-option"><label for="easy-option">Fácil</label>
-            <input type="radio" name="option" id="medium-option" checked><label for="medium-option">Medio</label>
-            <input type="radio" name="option" id="hard-option"><label for="opcion-dificil">Difícil</label>
-            <input type="radio" name="option" id="personalized-option"><label for="opcion-personalizado">Personalizado</label>
-        </form>
+        <section class="stats">
+            <h2>Estadísticas</h2>
+            <article class="attempts">
+                <h3>Número de intentos:</h3>
+                <p>1</p>
+            </article>
+        
+            <article class="time">
+                <h3>Tiempo transcurrido:</h3>
+                <p>1</p>
+            </article>
+        </section>
 
-        <form class="board-options">
-            <label for="num-rows">Filas: </label><input type="number" name="rows" id="num-rows">
-            <label for="num-columns">Columnas: </label><input type="number" name="columns" id="num-columns">
-            <label for="num-lights">Luces encendidas: </label><input type="number" name="lights" id="num-lights">
-        </form>
 
-        <button type="submit" id="generate-grid">Generar parrilla</button>
-    </section>
+
+        <section class="game-settings">
+            <h2>Ajustes del juego</h2>
+            <form class="difficult-selector">
+                <input type="radio" name="option" id="easy-option"><label for="easy-option">Fácil</label>
+                <input type="radio" name="option" id="medium-option" checked><label for="medium-option">Medio</label>
+                <input type="radio" name="option" id="hard-option"><label for="opcion-dificil">Difícil</label>
+                <input type="radio" name="option" id="personalized-option"><label for="opcion-personalizado">Personalizado</label>
+            </form>
+
+            <form class="board-options">
+                <label for="num-rows">Filas: </label><input type="number" name="rows" id="num-rows">
+                <label for="num-columns">Columnas: </label><input type="number" name="columns" id="num-columns">
+                <label for="num-lights">Luces encendidas: </label><input type="number" name="lights" id="num-lights">
+            </form>
+            
+            <button type="submit" id="generate-grid">Generar parrilla</button>
+        </section>
+    </main>
 
     <footer>
         <p>© Mateo Quintela Trillo 2025</p>
