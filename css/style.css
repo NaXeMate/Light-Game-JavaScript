@@ -61,12 +61,29 @@ main {
     gap: 1rem;
     flex: 1 1 350px;
     max-width: 600px;
-    div {
+    .row {
         display: flex;
         gap: 0.5rem;
     }
 
-    img {
+    .light {
+        background-image: url(../img/switch_on.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 90px;
+        height: 90px;
+        max-width: 12vw;
+        transition: filter 0.2s;
+        /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+        transition: 0.1s linear;
+    }
+
+    .dark {
+        background-image: url(../img/switch_off.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
         width: 90px;
         height: auto;
         max-width: 12vw;
@@ -75,7 +92,8 @@ main {
         transition: 0.1s linear;
     }
 
-    img:hover {
+    .light:hover,
+    .dark:hover {
         scale: 1.1;
     }
 }

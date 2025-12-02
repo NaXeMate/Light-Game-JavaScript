@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego Luces</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="icon" type="image/png" href="img/favicon.png" />
@@ -15,40 +15,18 @@
     </section>
 
     <main>
-        <section class="board">
-            <div id="row1">
-                <img src="./img/switch_on.png" id="img_1_1" />
-                <img src="./img/switch_on.png" id="img_1_2" />
-                <img src="./img/switch_on.png" id="img_1_3" />
-                <img src="./img/switch_on.png" id="img_4_1" />
-                <img src="./img/switch_on.png" id="img_5_2" />
-            </div>
-            <div id="row2">
-                <img src="./img/switch_on.png" id="img_2_1" />
-                <img src="./img/switch_on.png" id="img_2_2" />
-                <img src="./img/switch_off.png" id="img_2_3" />
-                <img src="./img/switch_off.png" id="img_4_3" />
-                <img src="./img/switch_on.png" id="img_3_3" />
-            </div>
-            <div id="row3">
-                <img src="./img/switch_off.png" id="img_3_1" />
-                <img src="./img/switch_on.png" id="img_3_2" />
-                <img src="./img/switch_on.png" id="img_4_2" />
-                <img src="./img/switch_on.png" id="img_5_1" />
-                <img src="./img/switch_on.png" id="img_5_4" />
-            </div>
-        </section>
+        <section class="board"></section>
 
         <section class="stats">
             <h2>Estadísticas</h2>
             <article class="attempts">
                 <h3>Número de intentos:</h3>
-                <p>1</p>
+                <p id="num-attempts"></p>
             </article>
         
             <article class="time">
                 <h3>Tiempo transcurrido:</h3>
-                <p>1</p>
+                <p id="spent-time"></p>
             </article>
         </section>
 
@@ -59,8 +37,8 @@
             <form class="difficult-selector">
                 <input type="radio" name="option" id="easy-option"><label for="easy-option">Fácil</label>
                 <input type="radio" name="option" id="medium-option" checked><label for="medium-option">Medio</label>
-                <input type="radio" name="option" id="hard-option"><label for="opcion-dificil">Difícil</label>
-                <input type="radio" name="option" id="personalized-option"><label for="opcion-personalizado">Personalizado</label>
+                <input type="radio" name="option" id="hard-option"><label for="hard-option">Difícil</label>
+                <input type="radio" name="option" id="personalized-option"><label for="personalized-option">Personalizado</label>
             </form>
 
             <form class="board-options">
@@ -69,7 +47,7 @@
                 <label for="num-lights">Luces encendidas: </label><input type="number" name="lights" id="num-lights">
             </form>
             
-            <button type="submit" id="generate-grid">Generar parrilla</button>
+            <button type="submit" id="generate-grid-button">Generar parrilla</button>
         </section>
     </main>
 
@@ -77,6 +55,6 @@
         <p>© Mateo Quintela Trillo 2025</p>
     </footer>
 
-    <script src="./js/luces.js"></script>
+    <script src="./js/lights.js"></script>
 </body>
 </html>
