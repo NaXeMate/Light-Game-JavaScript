@@ -1,5 +1,5 @@
 const numAttempts = document.getElementById('num-attempts');
-const spentTime = document.getElementById('spent-time');
+const timerSpan = document.getElementById('spent-time');
 const generateGridButton = document.getElementById('generate-grid-button');
 const boardContainer = document.querySelector(".board");
 
@@ -10,6 +10,8 @@ let lightsOn;
 let board = [];
 
 let attempts = 0;
+let spentTime = 0;
+let timer = null;
 
 let ongoingGame = false;
 
@@ -65,7 +67,7 @@ function generateGameBoard() {
         while (on < lightsOn) {
             const i = Math.floor(Math.random() * rows);
             const j = Math.floor(Math.random() * columns);
-            button = board[i][j];
+            const button = board[i][j];
             console.log(button);
             console.log(i);
             console.log(j);
@@ -99,9 +101,9 @@ const startGame = () => {
             lightsOn = 20;
             break;
         case 'personalized-option' :
-            rows = document.querySelector("#num-rows").value;
-            columns = document.querySelector("#num-columns").value;
-            lightsOn = document.querySelector("#num-lights").value;
+            rows = Number(document.querySelector("#num-rows").value);
+            columns = Number(document.querySelector("#num-columns").value);
+            lightsOn = Number(document.querySelector("#num-lights").value);
             break;
     }
 
@@ -115,6 +117,8 @@ const startGame = () => {
 
     generateGameBoard();
     attempts = 0;
+    restartTimer();
+    startTimer();
     ongoingGame = true;
 
 }
@@ -137,7 +141,7 @@ function click(i, j) {
 }
 
 function switchLight(i, j) {
-    if (i < 0 || i >= rows || j < 0 || j >= columns) {
+    if (i < 0 || i >= rows || j < 0 || j >= columns) {
         return;
     }
 
@@ -150,4 +154,17 @@ function switchLight(i, j) {
         button.classList.remove('light');
         button.classList.add('dark');
     }
+}
+
+function startTimer() {
+    timer = setInterval(() => {
+        spentTime++;
+        timerSpan.textContent = spentTime;
+    }, 1000);
+}
+
+function restartTimer() {
+    clearInterval(timer);
+    spentTime = 0;
+    timerSpan.textContent = spentTime;
 }
