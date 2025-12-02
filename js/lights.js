@@ -9,6 +9,10 @@ let lightsOn;
 
 let board = [];
 
+let attempts = 0;
+
+let ongoingGame = false;
+
 const tile = {
     isOn: true
 }
@@ -48,6 +52,8 @@ function generateGameBoard() {
             button.classList.add('dark');
             button.dataset.row = i;
             button.dataset.column = j;
+            
+            button.addEventListener('click', () => click(i, j))
 
             rowDiv.appendChild(button);
             board[i][j] = button;
@@ -108,6 +114,40 @@ const startGame = () => {
     }
 
     generateGameBoard();
+    attempts = 0;
+    ongoingGame = true;
+
 }
 
 generateGridButton.addEventListener('click', startGame);
+
+function click(i, j) {
+    if (!ongoingGame) {
+        return;
+    }
+
+    switchLight(i, j);
+    switchLight(i-1, j);
+    switchLight(i+1, j);
+    switchLight(i, j-1);
+    switchLight(i, j+1);
+
+    attempts++;
+    numAttempts.textContent = attempts;
+}
+
+function switchLight(i, j) {
+    if (i < 0 || i >= rows || j < 0 || j >= columns) {
+        return;
+    }
+
+    const button = board[i][j];
+
+    if (button.classList.contains('dark')) {
+        button.classList.remove('dark');
+        button.classList.add('light');
+    } else {
+        button.classList.remove('light');
+        button.classList.add('dark');
+    }
+}
