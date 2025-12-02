@@ -85,7 +85,7 @@ main {
         background-repeat: no-repeat;
         background-position: center;
         width: 90px;
-        height: auto;
+        height: 90px;
         max-width: 12vw;
         transition: filter 0.2s;
         /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
