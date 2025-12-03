@@ -2,6 +2,7 @@ const numAttempts = document.getElementById('num-attempts');
 const timerSpan = document.getElementById('spent-time');
 const generateGridButton = document.getElementById('generate-grid-button');
 const boardContainer = document.querySelector(".board");
+const statusMessage = document.getElementById("statusMessage");
 
 let rows = 5;
 let columns = 6
@@ -19,6 +20,8 @@ const tile = {
     isOn: true
 }
 
+let message;
+
 function initialBoard() {
     for (let i = 0; i < rows; i++) {
         const rowDiv = document.createElement('div');
@@ -35,6 +38,8 @@ function initialBoard() {
             board[i][j] = button;
         }
         boardContainer.appendChild(rowDiv);
+        message = "Welcome to the Light Game! Good luck in your games!"
+        statusMessage.textContent = message;
     }
 }
 
@@ -61,6 +66,8 @@ function generateGameBoard() {
             board[i][j] = button;
         }
         boardContainer.appendChild(rowDiv);
+        message = "The game has begun. Good luck!"
+        statusMessage.textContent = message;
     }
 
     let on = 0;
@@ -164,6 +171,9 @@ function checkWinner() {
             }
         }
     }
+    message = "You win! Congratulations! Now, you can leave or play again."
+    statusMessage.textContent = message;
+
     ongoingGame = false;
     clearInterval(timer);
     return true;
