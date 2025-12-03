@@ -120,7 +120,6 @@ const startGame = () => {
     restartTimer();
     startTimer();
     ongoingGame = true;
-
 }
 
 generateGridButton.addEventListener('click', startGame);
@@ -138,6 +137,7 @@ function click(i, j) {
 
     attempts++;
     numAttempts.textContent = attempts;
+    checkWinner();
 }
 
 function switchLight(i, j) {
@@ -154,6 +154,19 @@ function switchLight(i, j) {
         button.classList.remove('light');
         button.classList.add('dark');
     }
+}
+
+function checkWinner() {
+    for (let i = 0; i < rows; i++) {
+        for (let j = 0; j < rows; j++) {
+            if (board[i][j].classList.contains('dark')) {
+                return false;
+            }
+        }
+    }
+    ongoingGame = false;
+    clearInterval(timer);
+    return true;
 }
 
 function startTimer() {
