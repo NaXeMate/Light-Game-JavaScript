@@ -151,6 +151,12 @@ main {
         input {
             width: 6rem;
         }
+
+        input:disabled {
+            background-color: #e0e0e0;
+            color: #777;
+            cursor: not-allowed;
+        }
     }
 
     button {

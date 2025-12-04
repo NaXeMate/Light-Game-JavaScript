@@ -1,26 +1,39 @@
 const numAttempts = document.getElementById('num-attempts');
 const timerSpan = document.getElementById('spent-time');
+
+const boardContainer = document.querySelector('.board');
+const statusMessage = document.getElementById('statusMessage');
+
 const generateGridButton = document.getElementById('generate-grid-button');
-const boardContainer = document.querySelector(".board");
-const statusMessage = document.getElementById("statusMessage");
+
+const customRadioButton = document.getElementById('custom-option');
+const rowsInput = document.getElementById('num-rows');
+const columnsInput = document.getElementById('num-columns');
+const lightsOnInput = document.getElementById('num-lights');
+const difficultRadios = document.querySelectorAll('input[name="option"]');
+
+let board = [];
 
 let rows = 5;
 let columns = 6
 let lightsOn;
-
-let board = [];
 
 let attempts = 0;
 let spentTime = 0;
 let timer = null;
 
 let ongoingGame = false;
+let message;
 
-const tile = {
-    isOn: true
+function updateCustomInputsStatus() {
+    const isCustomSelected = customRadioButton.checked;
+    const allowed = isCustomSelected && !ongoingGame
+    
+    rowsInput.disabled = !allowed;
+    columnsInput.disabled = !allowed;
+    lightsOnInput.disabled = !allowed;
 }
 
-let message;
 
 function initialBoard() {
     for (let i = 0; i < rows; i++) {
@@ -43,7 +56,15 @@ function initialBoard() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', initialBoard);
+document.addEventListener('DOMContentLoaded', () => {
+    initialBoard(),
+    updateCustomInputsStatus()
+});
+
+
+difficultRadios.forEach(radio => {
+    radio.addEventListener('change', updateCustomInputsStatus)
+});
 
 function generateGameBoard() {
     boardContainer.innerHTML = "";
@@ -107,7 +128,7 @@ const startGame = () => {
             columns = 10;
             lightsOn = 20;
             break;
-        case 'personalized-option' :
+        case 'custom-option' :
             rows = Number(document.querySelector("#num-rows").value);
             columns = Number(document.querySelector("#num-columns").value);
             lightsOn = Number(document.querySelector("#num-lights").value);
@@ -127,6 +148,7 @@ const startGame = () => {
     restartTimer();
     startTimer();
     ongoingGame = true;
+    updateCustomInputsStatus();
 }
 
 generateGridButton.addEventListener('click', startGame);
@@ -173,10 +195,13 @@ function checkWinner() {
     }
     message = "You win! Congratulations! Now, you can leave or play again."
     statusMessage.textContent = message;
-
+    endGame();
+    return true;
+}
+function endGame() {
     ongoingGame = false;
     clearInterval(timer);
-    return true;
+    updateCustomInputsStatus();
 }
 
 function startTimer() {
