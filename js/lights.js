@@ -5,7 +5,7 @@ const boardContainer = document.querySelector('.board');
 const statusMessage = document.getElementById('statusMessage');
 
 const generateGridButton = document.getElementById('generate-grid-button');
-
+const restartButton = document.getElementById('restart-button');
 const customRadioButton = document.getElementById('custom-option');
 const rowsInput = document.getElementById('num-rows');
 const columnsInput = document.getElementById('num-columns');
@@ -36,6 +36,9 @@ function updateCustomInputsStatus() {
 
 
 function initialBoard() {
+    boardContainer.innerHTML = "";
+    board = [];
+
     for (let i = 0; i < rows; i++) {
         const rowDiv = document.createElement('div');
         rowDiv.classList.add('row');
@@ -198,6 +201,16 @@ function checkWinner() {
     endGame();
     return true;
 }
+
+function restartGame() {
+    initialBoard();
+    message = "You've given up. Don't be discouraged and try again!"
+    statusMessage.textContent = message;
+    endGame();
+}
+
+restartButton.addEventListener('click', restartGame);
+
 function endGame() {
     ongoingGame = false;
     clearInterval(timer);
