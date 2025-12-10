@@ -27,9 +27,11 @@ h2 {
     gap: 1rem;
     width: 100%;
     margin-top: 2rem;
+
     img {
         width: 50px;
     }
+    
     h1 {
         margin-left: 10px;
         text-align: center;
@@ -47,7 +49,8 @@ h2 {
 
 main {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: flex-start;
     gap: 2rem;
@@ -68,6 +71,7 @@ main {
     gap: 1rem;
     flex: 1 1 350px;
     max-width: 600px;
+
     .row {
         display: flex;
         gap: 0.5rem;
@@ -78,11 +82,11 @@ main {
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        width: 90px;
-        height: 90px;
-        max-width: 12vw;
+        width: 70px;
+        height: 70px;
+        max-width: 8vw;
         transition: filter 0.2s;
-        /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         transition: 0.1s linear;
     }
 
@@ -91,11 +95,11 @@ main {
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        width: 90px;
-        height: 90px;
-        max-width: 12vw;
+        width: 70px;
+        height: 70px;
+        max-width: 8vw;
         transition: filter 0.2s;
-        /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         transition: 0.1s linear;
     }
 
@@ -105,16 +109,25 @@ main {
     }
 }
 
-.stats, .game-settings {
+.options-container {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    flex: 1 1 250px;
+    flex: 0 0 350px;
     max-width: 350px;
+    margin-left: 200px;
+}
+
+.stats, 
+.game-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 .stats {
     align-items: flex-start;
+    
     article {
         display: flex;
         flex-direction: column;
@@ -188,15 +201,19 @@ footer {
     width: 100%;
     text-align: center;
     font-size: 0.75em;
-    margin-top: 3rem;
+    margin-top: auto;
+    margin-bottom: 3rem;
 }
 
-@media (max-width: 1000px) { /* En pantallas pequeñas, apilar contenido */
-    .main {
+@media (max-width: 1000px) {
+    main {
         flex-direction: column;
         align-items: center;
     }
-    .board, .stats, .game-settings {
+
+    .board,
+    .stats,
+    .game-settings {
         max-width: 100%;
         width: 100%;
     }

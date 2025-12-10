@@ -21,40 +21,42 @@
     <main>
         <section class="board"></section>
 
-        <section class="stats">
-            <h2>Game Stats</h2>
-            <article class="attempts">
-                <h3>Attempts:</h3>
-                <p id="num-attempts"></p>
-            </article>
-        
-            <article class="time">
-                <h3>Spent time:</h3>
-                <p id="spent-time"></p>
-            </article>
-        </section>
-
-
-
-        <section class="game-settings">
-            <h2>Game Settings</h2>
-            <form class="difficult-selector">
-                <input type="radio" name="option" id="easy-option"><label for="easy-option">Easy</label>
-                <input type="radio" name="option" id="medium-option" checked><label for="medium-option">Medium</label>
-                <input type="radio" name="option" id="hard-option"><label for="hard-option">Hard</label>
-                <input type="radio" name="option" id="custom-option"><label for="custom-option">Custom</label>
-            </form>
-
-            <form class="board-options">
-                <label for="num-rows">Rows: </label><input type="number" name="rows" id="num-rows">
-                <label for="num-columns">Columns: </label><input type="number" name="columns" id="num-columns">
-                <label for="num-lights">Lights on: </label><input type="number" name="lights" id="num-lights">
-            </form>
-            <div class="button-container">
-                <button type="submit" id="generate-grid-button">Generate grid</button>
-                <button type="submit" id="restart-button">Restart</button>
-            </div>
-        </section>
+        <div class="options-container">
+            <section class="stats">
+                <h2>Game Stats</h2>
+                <article class="attempts">
+                    <h3>Attempts:</h3>
+                    <p id="num-attempts"></p>
+                </article>
+                
+                <article class="time">
+                    <h3>Spent time:</h3>
+                    <p id="spent-time"></p>
+                </article>
+            </section>
+            
+            
+            
+            <section class="game-settings">
+                <h2>Game Settings</h2>
+                <form class="difficult-selector">
+                    <input type="radio" name="option" id="easy-option"><label for="easy-option">Easy</label>
+                    <input type="radio" name="option" id="medium-option" checked><label for="medium-option">Medium</label>
+                    <input type="radio" name="option" id="hard-option"><label for="hard-option">Hard</label>
+                    <input type="radio" name="option" id="custom-option"><label for="custom-option">Custom</label>
+                </form>
+                
+                <form class="board-options">
+                    <label for="num-rows">Rows: </label><input type="number" name="rows" id="num-rows">
+                    <label for="num-columns">Columns: </label><input type="number" name="columns" id="num-columns">
+                    <label for="num-lights">Lights on: </label><input type="number" name="lights" id="num-lights">
+                </form>
+                <div class="button-container">
+                    <button type="submit" id="generate-grid-button">Generate grid</button>
+                    <button type="submit" id="restart-button">Restart</button>
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer>

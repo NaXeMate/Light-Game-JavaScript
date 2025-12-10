@@ -14,8 +14,8 @@ const difficultRadios = document.querySelectorAll('input[name="option"]');
 
 let board = [];
 
-let rows = 5;
-let columns = 6
+let rows;
+let columns;
 let lightsOn;
 
 let attempts = 0;
@@ -34,17 +34,16 @@ function updateCustomInputsStatus() {
     lightsOnInput.disabled = !allowed;
 }
 
-
 function initialBoard() {
     boardContainer.innerHTML = "";
     board = [];
 
-    for (let i = 0; i < rows; i++) {
+    for (let i = 0; i < 5; i++) {
         const rowDiv = document.createElement('div');
         rowDiv.classList.add('row');
         board[i] = [];
 
-        for (let j = 0; j < columns; j++) {
+        for (let j = 0; j < 6; j++) {
             const button = document.createElement('button');
             button.classList.add('light');
             button.dataset.row = i;
@@ -54,9 +53,10 @@ function initialBoard() {
             board[i][j] = button;
         }
         boardContainer.appendChild(rowDiv);
-        message = "Welcome to the Light Game! Good luck in your games!"
-        statusMessage.textContent = message;
     }
+    
+    message = "Welcome to the Light Game! Good luck in your games!"
+    statusMessage.textContent = message;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -138,12 +138,17 @@ const startGame = () => {
             break;
     }
 
-    if (rows >= 15 || columns >= 15) {
-            alert("The max number of rows and columns supported by the game is 15.");
-            return;
-        } else if (lightsOn >= (rows * columns)) {
-            alert("At least, one light off is needed in order to play the game.");
-            return;
+    if (rows > 15 || columns > 15) {
+        alert("The max number of rows and columns supported by the game is 15.");
+        return;
+    } else if (rows <= 0 || columns <= 0 || !Number.isInteger(rows) || !Number.isInteger(columns)) {
+        alert("For a correct operation of the game, only positive numbers are allowed in the game settings fields.");
+        return;
+    } else if (lightsOn >= (rows * columns) || 0) {
+        alert("At least, one light off is needed in order to play the game.");
+        return;
+    } else if (rows > 7 || columns > 11) {
+        alert("Very large boards may not be displayed correctly on small devices. If you have serious display issues, consider change the board dimensions or reload the page to return to the initial state");
     }
 
     generateGameBoard();
